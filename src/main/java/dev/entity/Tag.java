@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Tag {
@@ -13,6 +16,14 @@ public class Tag {
 	private Integer id;
 
 	private String nom;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_topic")
+	private Topic topic;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_notification")
+	private Notification notification;
 
 	public Integer getId() {
 		return id;

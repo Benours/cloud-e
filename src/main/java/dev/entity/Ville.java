@@ -2,9 +2,13 @@ package dev.entity;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -22,6 +26,9 @@ public class Ville {
 	@ManyToOne
 	@JoinColumn(name = "id_lieu")
 	private Lieu lieu;
+	
+	@ManyToMany(mappedBy = "villes")
+	private List<User> users;
 	
 	public Integer getId() {
 		return id;
