@@ -16,11 +16,11 @@ public class Lieu {
 	private String nom;
 	
 	
-	@OneToMany(mappedBy = "region")
+	@OneToMany(mappedBy = "lieu")
 	private List<Region> regions;
-	@OneToMany(mappedBy = "region")
+	@OneToMany(mappedBy = "lieu")
 	private List<Departement> departements;
-	@OneToMany(mappedBy = "region")
+	@OneToMany(mappedBy = "lieu")
 	private List<Ville> villes;
 	
 	
