@@ -30,7 +30,7 @@ public class Meteo {
 	private int couverture_nuageuse;
 	
 	@OneToOne
-	private int ville_id;
+	private Ville ville;
 
 	public Meteo() {
 	}
