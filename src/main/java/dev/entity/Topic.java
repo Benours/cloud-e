@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -23,6 +24,12 @@ public class Topic {
 
 	@OneToMany(mappedBy = "topic")
 	private List<Tag> tag;
+	
+	@ManyToMany(mappedBy = "topics")
+	private List<User> users;
+	
+	@OneToMany(mappedBy = "topic")
+	private List<Message> messages;
 
 	public String getTitle() {
 		return title;

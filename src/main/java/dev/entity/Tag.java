@@ -20,6 +20,10 @@ public class Tag {
 	@ManyToOne
 	@JoinColumn(name = "id_topic")
 	private Topic topic;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_notification")
+	private Notification notification;
 
 	public Integer getId() {
 		return id;

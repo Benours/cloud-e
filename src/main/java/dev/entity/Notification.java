@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Notification {
@@ -17,6 +18,9 @@ public class Notification {
 	
 	private String titre;
 	private String text;
+	
+	@OneToMany(mappedBy = "notification")
+	private List<Tag> tags;
 	
 	@ManyToMany(mappedBy = "notifications")
 	private List<User> users;
