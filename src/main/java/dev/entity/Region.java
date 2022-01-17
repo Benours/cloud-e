@@ -20,7 +20,7 @@ public class Region {
 	private Integer numero;	
 	
 	@ManyToOne
-	@JoinColumn(name = "id_lieu")
+	@JoinColumn(name = "lieu")
 	private Lieu lieu;
 	
 	@OneToMany(mappedBy = "region")
