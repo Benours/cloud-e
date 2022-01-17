@@ -138,12 +138,4 @@ public class Meteo {
 		this.couverture_nuageuse = couverture_nuageuse;
 	}
 	
-	public int getVille_id() {
-		return ville_id;
-	}
-
-	public void setVille_id(int ville_id) {
-		this.ville_id = ville_id;
-	}
-	
 }
