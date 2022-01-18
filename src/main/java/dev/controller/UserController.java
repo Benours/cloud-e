@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import dev.entity.Adresse;
@@ -27,6 +28,11 @@ public class UserController {
 	 */
 	public UserController(UserService userService) {
 		this.userService = userService;
+	}
+	
+	@GetMapping
+	public ResponseEntity<?> connection(@RequestParam String email, @RequestParam String motDePasse) {
+		return ResponseEntity.ok().body(this.userService.findUserByEmailAndMotDePasse(email, motDePasse));
 	}
 	
 	@GetMapping("{id}")

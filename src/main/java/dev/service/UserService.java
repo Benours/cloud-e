@@ -65,4 +65,9 @@ public class UserService {
 		return user;
 	}
 
+	public User findUserByEmailAndMotDePasse(String email, String motDePasse) {
+		// TODO Auto-generated method stub
+		return this.userRepository.findUserByEmailAndMotDePasse(email, motDePasse);
+	}
+
 }
