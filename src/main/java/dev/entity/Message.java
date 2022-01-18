@@ -20,9 +20,7 @@ public class Message {
 	
 	private String text;
 	private LocalDate date;
-	
-	@ManyToMany(mappedBy = "messages")
-	private List<User> users;
+	private int likes;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_topic")

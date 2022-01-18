@@ -21,12 +21,10 @@ public class Topic {
 	private String text;
 	private String image;
 	private LocalDate date;
+	private int likes;
 
 	@OneToMany(mappedBy = "topic")
 	private List<Tag> tag;
-	
-	@ManyToMany(mappedBy = "topics")
-	private List<User> users;
 	
 	@OneToMany(mappedBy = "topic")
 	private List<Message> messages;
