@@ -1,7 +1,5 @@
 package dev.service;
 
-import java.util.List;
-
 import org.springframework.stereotype.Service;
 
 import dev.repository.MeteoRepository;
@@ -13,7 +11,14 @@ public class MeteoService {
 
 	public MeteoService(MeteoRepository meteoRepository) {
 		super();
-		this.meteoRepository = meteoRepository;
+		this.setMeteoRepository(meteoRepository);
 	}
 
+	public MeteoRepository getMeteoRepository() {
+		return meteoRepository;
+	}
+
+	public void setMeteoRepository(MeteoRepository meteoRepository) {
+		this.meteoRepository = meteoRepository;
+	}
 }

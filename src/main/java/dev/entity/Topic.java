@@ -18,7 +18,7 @@ public class Topic {
 	private Integer id;
 
 	private String title;
-	private String text;
+	private String content;
 	private String image;
 	private LocalDate date;
 
@@ -48,11 +48,11 @@ public class Topic {
 	}
 
 	public String getText() {
-		return text;
+		return content;
 	}
 
-	public void setText(String text) {
-		this.text = text;
+	public void setText(String content) {
+		this.content = content;
 	}
 
 	public String getImage() {
