@@ -12,16 +12,21 @@ import dev.entity.Topic;
 import dev.service.TopicService;
 
 @RestController
-@RequestMapping("/api/topics")
+@RequestMapping("topics")
 public class TopicController {
 
 	private TopicService topicService;
+
+	public TopicController(TopicService topicService) {
+		super();
+		this.topicService = topicService;
+	}
 
 	public TopicService getTopicService() {
 		return topicService;
 	}
 
-	@GetMapping("/api/topics/{id}")
+	@GetMapping("{id}")
 	public ResponseEntity<?> topic(@PathVariable Integer id) {
 		return ResponseEntity.ok().body(this.topicService.findTopic(id));
 	}
@@ -29,16 +34,16 @@ public class TopicController {
 	public void setTopicService(TopicService topicService) {
 		this.topicService = topicService;
 	}
-	
+
 	@PostMapping
 	public ResponseEntity<?> createTopic(@RequestBody Topic topicToCreate) {
 		return ResponseEntity.ok().body(this.topicService.createTopic(topicToCreate));
 	}
-	
-	@PostMapping("/api/topics")
-	public ResponseEntity<?> likeTopic(@PathVariable Integer id, @RequestBody Topic topicToLike) {
+
+	@PostMapping("likes/{id}")
+	public ResponseEntity<?> likeTopic(@PathVariable Integer id) {
 		Topic topic = this.topicService.findTopic(id).get();
-		this.topicService.update(topic, topicToLike);
+		this.topicService.update(topic);
 		return ResponseEntity.ok().body(topic);
 	}
 }

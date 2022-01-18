@@ -21,7 +21,6 @@ public class Topic {
 	private String image;
 	private LocalDate date;
 	private int likes;
-	private boolean isliked;
 
 	@OneToMany(mappedBy = "topic")
 	private List<Tag> tag;
@@ -83,14 +82,6 @@ public class Topic {
 
 	public void setLikes(int likes) {
 		this.likes = likes;
-	}
-
-	public boolean isIsliked() {
-		return isliked;
-	}
-
-	public void setIsliked(boolean isliked) {
-		this.isliked = isliked;
 	}
 
 	public List<Message> getMessages() {

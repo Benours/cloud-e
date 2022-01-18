@@ -13,11 +13,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "meteo") // Optionnel
 public class Meteo {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-	
+	private Integer id;
+
 	private int temperature;
 	private int humidite;
 	private LocalDate date;
@@ -28,7 +28,7 @@ public class Meteo {
 	private int pression_atmo;
 	private int indice_uv;
 	private int couverture_nuageuse;
-	
+
 	@OneToOne
 	private Ville ville;
 
@@ -137,5 +137,5 @@ public class Meteo {
 	public void setCouverture_nuageuse(int couverture_nuageuse) {
 		this.couverture_nuageuse = couverture_nuageuse;
 	}
-	
+
 }
