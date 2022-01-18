@@ -25,14 +25,19 @@ public class TopicController {
 	public TopicService getTopicService() {
 		return topicService;
 	}
-
-	@GetMapping("{id}")
-	public ResponseEntity<?> topic(@PathVariable Integer id) {
-		return ResponseEntity.ok().body(this.topicService.findTopic(id));
-	}
-
+	
 	public void setTopicService(TopicService topicService) {
 		this.topicService = topicService;
+	}
+
+	@GetMapping("{id}")
+	public ResponseEntity<?> findTopic(@PathVariable Integer id) {
+		return ResponseEntity.ok().body(this.topicService.findTopic(id));
+	}
+	
+	@GetMapping("likes/{id}")
+	public ResponseEntity<?> findLikes(@PathVariable Integer id) {
+		return ResponseEntity.ok().body(this.topicService.findLikes(id));
 	}
 
 	@PostMapping

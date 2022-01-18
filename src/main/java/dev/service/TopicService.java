@@ -30,6 +30,10 @@ public class TopicService {
 	public Optional<Topic> findTopic(Integer id) {
 		return this.topicRepository.findById(id);
 	}
+	
+	public Optional<Topic> findLikes(Integer likes) {
+		return this.topicRepository.findById(likes);
+	}
 
 	public Topic findOne(int id) {
 		return topicRepository.findById(id).get();
