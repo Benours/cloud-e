@@ -32,24 +32,13 @@ public class User {
 	joinColumns = @JoinColumn(name = "id_user", referencedColumnName = "ID"),
 	inverseJoinColumns = @JoinColumn(name = "id_notification", referencedColumnName = "ID"))
 	private List<Notification> notifications;
-	
-	@ManyToMany
-	@JoinTable(name = "user_topic",
-	joinColumns = @JoinColumn(name = "id_user", referencedColumnName = "ID"),
-	inverseJoinColumns = @JoinColumn(name = "id_topic", referencedColumnName = "ID"))
-	private List<Topic> topics;
-	
+		
 	@ManyToMany
 	@JoinTable(name = "user_ville",
 	joinColumns = @JoinColumn(name = "id_user", referencedColumnName = "ID"),
 	inverseJoinColumns = @JoinColumn(name = "id_ville", referencedColumnName = "ID"))
 	private List<Ville> villes;
 	
-	@ManyToMany
-	@JoinTable(name = "user_message",
-	joinColumns = @JoinColumn(name = "id_user", referencedColumnName = "ID"),
-	inverseJoinColumns = @JoinColumn(name = "id_message", referencedColumnName = "ID"))
-	private List<Message> messages;
 
 	/**
 	 * 
