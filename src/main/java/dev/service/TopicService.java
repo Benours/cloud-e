@@ -37,5 +37,12 @@ public class TopicService {
     @Transactional
     public Topic createTopic(Topic topicToCreate) {
     	return this.topicRepository.save(topicToCreate);
-    }
+    }	
+
+	@Transactional
+	public Topic update (Topic topic, Topic topicToLike) {
+		if (topicToLike.isIsliked() == true)
+			topic.setLikes(topicToLike.getLikes()+1);
+		return topic;
+	}
 }

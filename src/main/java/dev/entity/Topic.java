@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -21,13 +20,12 @@ public class Topic {
 	private String content;
 	private String image;
 	private LocalDate date;
+	private int likes;
+	private boolean isliked;
 
 	@OneToMany(mappedBy = "topic")
 	private List<Tag> tag;
-	
-	@ManyToMany(mappedBy = "topics")
-	private List<User> users;
-	
+
 	@OneToMany(mappedBy = "topic")
 	private List<Message> messages;
 
@@ -47,11 +45,11 @@ public class Topic {
 		this.id = id;
 	}
 
-	public String getText() {
+	public String getContent() {
 		return content;
 	}
 
-	public void setText(String content) {
+	public void setContent(String content) {
 		this.content = content;
 	}
 
@@ -77,5 +75,29 @@ public class Topic {
 
 	public void setTag(List<Tag> tag) {
 		this.tag = tag;
+	}
+
+	public int getLikes() {
+		return likes;
+	}
+
+	public void setLikes(int likes) {
+		this.likes = likes;
+	}
+
+	public boolean isIsliked() {
+		return isliked;
+	}
+
+	public void setIsliked(boolean isliked) {
+		this.isliked = isliked;
+	}
+
+	public List<Message> getMessages() {
+		return messages;
+	}
+
+	public void setMessages(List<Message> messages) {
+		this.messages = messages;
 	}
 }

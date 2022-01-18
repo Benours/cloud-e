@@ -1,14 +1,12 @@
 package dev.entity;
 
 import java.time.LocalDate;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -20,9 +18,6 @@ public class Message {
 	
 	private String text;
 	private LocalDate date;
-	
-	@ManyToMany(mappedBy = "messages")
-	private List<User> users;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_topic")

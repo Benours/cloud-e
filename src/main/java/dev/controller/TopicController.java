@@ -34,4 +34,11 @@ public class TopicController {
 	public ResponseEntity<?> createTopic(@RequestBody Topic topicToCreate) {
 		return ResponseEntity.ok().body(this.topicService.createTopic(topicToCreate));
 	}
+	
+	@PostMapping("/api/topics")
+	public ResponseEntity<?> likeTopic(@PathVariable Integer id, @RequestBody Topic topicToLike) {
+		Topic topic = this.topicService.findTopic(id).get();
+		this.topicService.update(topic, topicToLike);
+		return ResponseEntity.ok().body(topic);
+	}
 }
