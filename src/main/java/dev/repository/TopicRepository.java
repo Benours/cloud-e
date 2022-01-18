@@ -6,5 +6,4 @@ import dev.entity.Topic;
 
 public interface TopicRepository extends JpaRepository<Topic, Integer> {
 
-
 }
