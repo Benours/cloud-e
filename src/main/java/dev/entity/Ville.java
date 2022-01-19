@@ -42,6 +42,26 @@ public class Ville {
 	public void setNbHabitants(Integer nbHabitants) {
 		this.nbHabitants = nbHabitants;
 	}
+	public Double getLat() {
+		return lat;
+	}
+	public void setLat(Double lat) {
+		this.lat = lat;
+	}
+	public Double getLng() {
+		return lng;
+	}
+	public void setLng(Double lng) {
+		this.lng = lng;
+	}
+	public List<User> getUsers() {
+		return users;
+	}
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+	
+	
 	
 	
 	
