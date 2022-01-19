@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Message {
 
@@ -24,6 +26,7 @@ public class Message {
 	
 	@ManyToOne
 	@JoinColumn(name = "id_topic")
+	@JsonIgnore
 	private Topic topic;
 	
 	/**
@@ -87,6 +90,12 @@ public class Message {
 	public void setTopic(Topic topic) {
 		this.topic = topic;
 	}
+	@Override
+	public String toString() {
+		return "Message [id=" + id + ", text=" + text + ", date=" + date + ", likes=" + likes + "]";
+	}
+
+	
 	
 	
 	 
