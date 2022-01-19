@@ -18,6 +18,7 @@ public class Ville {
 	private Integer id;
 	private Integer numero;
 	private Integer nbHabitants;
+	private String coordonneesGPS;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_departement")
@@ -59,6 +60,18 @@ public class Ville {
 	}
 	public void setLieu(Lieu lieu) {
 		this.lieu = lieu;
+	}
+	/**
+	 * @return the coordonneesGPS
+	 */
+	public String getCoordonneesGPS() {
+		return coordonneesGPS;
+	}
+	/**
+	 * @param coordonneesGPS the coordonneesGPS to set
+	 */
+	public void setCoordonneesGPS(String coordonneesGPS) {
+		this.coordonneesGPS = coordonneesGPS;
 	}
 	
 	
