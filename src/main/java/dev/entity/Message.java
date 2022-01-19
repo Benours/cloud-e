@@ -75,6 +75,19 @@ public class Message {
 	public void setDate(LocalDate date) {
 		this.date = date;
 	}
+	public int getLikes() {
+		return likes;
+	}
+	public void setLikes(int likes) {
+		this.likes = likes;
+	}
+	public Topic getTopic() {
+		return topic;
+	}
+	public void setTopic(Topic topic) {
+		this.topic = topic;
+	}
+	
 	
 	 
 }
