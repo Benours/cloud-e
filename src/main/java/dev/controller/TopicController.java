@@ -39,6 +39,16 @@ public class TopicController {
 	public ResponseEntity<?> findLikes(@PathVariable Integer id) {
 		return ResponseEntity.ok().body(this.topicService.findLikes(id));
 	}
+	
+	@GetMapping("messages/{id}")
+	public ResponseEntity<?> findMessages(@PathVariable Integer id) {
+		return ResponseEntity.ok().body(this.topicService.findMessages(id));
+	}
+	
+	@GetMapping("tag/{id}")
+	public ResponseEntity<?> findTag(@PathVariable Integer id) {
+		return ResponseEntity.ok().body(this.topicService.findTag(id));
+	}
 
 	@PostMapping
 	public ResponseEntity<?> createTopic(@RequestBody Topic topicToCreate) {
