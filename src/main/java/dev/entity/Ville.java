@@ -18,15 +18,9 @@ public class Ville {
 	private Integer id;
 	private Integer numero;
 	private Integer nbHabitants;
-	private String coordonneesGPS;
-	
-	@ManyToOne
-	@JoinColumn(name = "id_departement")
-	private Departement departement;
-	
-	@ManyToOne
-	@JoinColumn(name = "id_lieu")
-	private Lieu lieu;
+	private Double lat;
+  private Double lng;
+
 	
 	@ManyToMany(mappedBy = "villes")
 	private List<User> users;
@@ -49,29 +43,23 @@ public class Ville {
 	public void setNbHabitants(Integer nbHabitants) {
 		this.nbHabitants = nbHabitants;
 	}
-	public Departement getDepartement() {
-		return departement;
+	public Double getLat() {
+		return lat;
 	}
-	public void setDepartement(Departement departement) {
-		this.departement = departement;
+	public void setLat(Double lat) {
+		this.lat = lat;
 	}
-	public Lieu getLieu() {
-		return lieu;
+	public Double getLng() {
+		return lng;
 	}
-	public void setLieu(Lieu lieu) {
-		this.lieu = lieu;
+	public void setLng(Double lng) {
+		this.lng = lng;
 	}
-	/**
-	 * @return the coordonneesGPS
-	 */
-	public String getCoordonneesGPS() {
-		return coordonneesGPS;
+	public List<User> getUsers() {
+		return users;
 	}
-	/**
-	 * @param coordonneesGPS the coordonneesGPS to set
-	 */
-	public void setCoordonneesGPS(String coordonneesGPS) {
-		this.coordonneesGPS = coordonneesGPS;
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 	
 	
