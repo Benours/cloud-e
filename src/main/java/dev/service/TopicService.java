@@ -1,11 +1,14 @@
 package dev.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import dev.entity.Message;
+import dev.entity.Tag;
 import dev.entity.Topic;
 import dev.repository.TopicRepository;
 
@@ -34,6 +37,16 @@ public class TopicService {
 	public Integer findLikes(Integer likes) {
 		Topic topic = this.topicRepository.findById(likes).get();
 		return topic.getLikes();
+	}
+	
+	public List<Message> findMessages(Integer messages) {
+		Topic topic = this.topicRepository.findById(messages).get();
+		return topic.getMessages();
+	}
+	
+	public List<Tag> findTag(Integer tag) {
+		Topic topic = this.topicRepository.findById(tag).get();
+		return topic.getTag();
 	}
 
 	public Topic findOne(int id) {
