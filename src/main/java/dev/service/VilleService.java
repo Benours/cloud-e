@@ -1,6 +1,7 @@
 package dev.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,6 +23,11 @@ public class VilleService {
     public Ville createVille(Ville villeACreer) {
         return this.villeRepository.save(villeACreer);
     }
+
+
+	public Optional<Ville> findVille(String nomVille) {
+		return this.villeRepository.findByVille(nomVille);
+	}
 	
 
 }
