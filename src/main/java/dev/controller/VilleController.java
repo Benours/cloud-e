@@ -19,7 +19,6 @@ public class VilleController {
     public VilleController(VilleService villeService) {
         this.villeService = villeService;
     }
-    @GetMapping
     
     @PostMapping
     public ResponseEntity<Ville> create(@RequestBody Ville villeACreer) {
