@@ -19,7 +19,8 @@ public class Ville {
 	private String nom;
 	private Integer nbHabitants;
 	private Double lat;
-	private Double lng;
+  private Double lng;
+
 	
 	@ManyToMany(mappedBy = "villes")
 	private List<User> users;
@@ -61,9 +62,6 @@ public class Ville {
 	public void setUsers(List<User> users) {
 		this.users = users;
 	}
-	
-	
-	
 	
 	
 	
