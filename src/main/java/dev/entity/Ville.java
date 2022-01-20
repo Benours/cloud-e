@@ -16,7 +16,7 @@ public class Ville {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private Integer numero;
+	private String nom;
 	private Integer nbHabitants;
 	private Double lat;
 	private Double lng;
@@ -30,11 +30,12 @@ public class Ville {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Integer getNumero() {
-		return numero;
+	
+	public String getNom() {
+		return nom;
 	}
-	public void setNumero(Integer numero) {
-		this.numero = numero;
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 	public Integer getNbHabitants() {
 		return nbHabitants;
