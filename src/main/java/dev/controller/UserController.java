@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dev.entity.Adresse;
 import dev.entity.User;
+import dev.entity.UserDTO;
 import dev.entity.Ville;
 import dev.service.UserService;
 
@@ -44,9 +45,11 @@ public class UserController {
 	}
 	
 	@PostMapping("update/{id}")
-	public ResponseEntity<?> update(@PathVariable Integer id, @RequestBody User userToModify) {
+	public ResponseEntity<?> update(@PathVariable Integer id, @RequestBody UserDTO userDTO) {
 		User user = this.userService.findUsers(id).get();
-		this.userService.update(user, userToModify);
+		this.userService.newAdresse(userDTO.getAdresse(), user);
+		this.userService.addAdresse(user, userDTO.getAdresse());
+		this.userService.update(user, userDTO);
 		return ResponseEntity.ok().body(user);
 	}
 	
@@ -55,11 +58,11 @@ public class UserController {
 		return ResponseEntity.ok().body(this.userService.createUser(userToCreate));
 	}
 	
-	@PostMapping("addAdresse/{id}")
-	public ResponseEntity<?> addAdresse(@PathVariable Integer id, @RequestBody Adresse adresse) {
-		User user = this.userService.findUsers(id).get();
-		this.userService.newAdresse(adresse);
-		return ResponseEntity.ok().body(this.userService.addAdresse(user, adresse));
-	}
+//	@PostMapping("addAdresse/{id}")
+//	public ResponseEntity<?> addAdresse(@PathVariable Integer id, ) {
+//		User user = this.userService.findUsers(id).get();
+//		this.userService.newAdresse(adresse);
+//		return ResponseEntity.ok().body(this.userService.addAdresse(user, adresse));
+//	}
 		
 } 

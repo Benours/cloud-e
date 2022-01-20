@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Adresse {
 
@@ -20,6 +22,7 @@ public class Adresse {
 	private String nomVille;
 	private int codePostal;
 
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "id_user")
 	private User user;
@@ -128,6 +131,22 @@ public class Adresse {
 	 */
 	public void setCodePostal(int codePostal) {
 		this.codePostal = codePostal;
+	}
+	
+	
+
+	/**
+	 * @return the user
+	 */
+	public User getUser() {
+		return user;
+	}
+
+	/**
+	 * @param user the user to set
+	 */
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import dev.entity.Adresse;
 import dev.entity.User;
+import dev.entity.UserDTO;
 import dev.entity.Ville;
 import dev.repository.AdresseRepository;
 import dev.repository.UserRepository;
@@ -38,31 +39,31 @@ public class UserService {
 	}
 
 	@Transactional
-	public User update(User user, User userToModify) {
+	public User update(User user, UserDTO userDTO) {
 		// TODO Auto-generated method stub
-		if (userToModify.getNom() != null)
-		user.setNom(userToModify.getNom());
-		if (userToModify.getPrenom() != null)
-		user.setPrenom(userToModify.getPrenom());
-		if (userToModify.getEmail() != null)
-		user.setEmail(userToModify.getEmail());
-		if (userToModify.getMotDePasse() != null)
-		user.setMotDePasse(userToModify.getMotDePasse());
+		if (userDTO.getNom() != null)
+		user.setNom(userDTO.getNom());
+		if (userDTO.getPrenom() != null)
+		user.setPrenom(userDTO.getPrenom());
+		if (userDTO.getEmail() != null)
+		user.setEmail(userDTO.getEmail());
+		if (userDTO.getMotDePasse() != null)
+		user.setMotDePasse(userDTO.getMotDePasse());
 		return user;
 	}
 	
 	@Transactional
-	public void newAdresse(Adresse adresse) {
+	public void newAdresse(Adresse adresse, User user) {
+		adresse.setUser(user);
 		this.adresseRepository.save(adresse);
 	}
 
 	@Transactional
-	public User addAdresse(User user, Adresse adresse) {
+	public void addAdresse(User user, Adresse adresse) {
 		// TODO Auto-generated method stub
 		List<Adresse> liste = user.getAdresses();
 		liste.add(adresse);
 		user.setAdresses(liste);
-		return user;
 	}
 
 	public User findUserByEmailAndMotDePasse(String email, String motDePasse) {
