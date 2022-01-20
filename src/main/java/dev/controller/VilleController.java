@@ -1,6 +1,5 @@
 package dev.controller;
 
-import dev.entity.User;
 import dev.entity.Ville;
 import dev.service.VilleService;
 
