@@ -17,18 +17,21 @@ import dev.entity.User;
 import dev.entity.UserDTO;
 import dev.entity.Ville;
 import dev.service.UserService;
+import dev.service.VilleService;
 
 @RestController
 @RequestMapping("user")
 public class UserController {
 
 	private UserService userService;
+	private VilleService villeService;
 
 	/**
 	 * @param userService
 	 */
-	public UserController(UserService userService) {
+	public UserController(UserService userService, VilleService villeService) {
 		this.userService = userService;
+		this.villeService = villeService;
 	}
 	
 	@GetMapping
@@ -51,6 +54,12 @@ public class UserController {
 		this.userService.addAdresse(user, userDTO.getAdresse());
 		this.userService.update(user, userDTO);
 		return ResponseEntity.ok().body(user);
+	}
+	
+	@PostMapping("{id}/{ville}")
+	public ResponseEntity<?> addVille(@PathVariable Integer id, @PathVariable String ville) {
+		Ville vile = this.villeService.findVille(ville).get();
+		return ResponseEntity.ok().body(this.userService.addVille(id, vile));
 	}
 	
 	@PostMapping

@@ -71,4 +71,14 @@ public class UserService {
 		return this.userRepository.findUserByEmailAndMotDePasse(email, motDePasse);
 	}
 
+	@Transactional
+	public Object addVille(Integer id, Ville vile) {
+		// TODO Auto-generated method stub
+		User user = this.userRepository.getById(id);
+		List<Ville> list = user.getVilles();
+		list.add(vile);
+		user.setVilles(list);
+		return user;
+	}
+
 }

@@ -67,6 +67,22 @@ public class User {
 		this.adresses = adresses;
 		this.notifications = notifications;
 	}
+	
+	
+
+	/**
+	 * @return the villes
+	 */
+	public List<Ville> getVilles() {
+		return villes;
+	}
+
+	/**
+	 * @param villes the villes to set
+	 */
+	public void setVilles(List<Ville> villes) {
+		this.villes = villes;
+	}
 
 	/**
 	 * @return the id
