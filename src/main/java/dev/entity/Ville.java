@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Ville {
 	@Id
@@ -23,6 +25,7 @@ public class Ville {
 
 	
 	@ManyToMany(mappedBy = "villes")
+	@JsonIgnore
 	private List<User> users;
 	
 	public Integer getId() {
