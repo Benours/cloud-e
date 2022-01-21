@@ -62,7 +62,7 @@ public class TopicService {
 
 	@Transactional
 	public Topic createTopic(Topic topicToCreate) {
-		this.tagRepository.save(topicToCreate.getTag().get(0));
+		this.tagRepository.saveAll(topicToCreate.getTag());
 		return this.topicRepository.save(topicToCreate);
 	}
 
