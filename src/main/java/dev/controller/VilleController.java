@@ -20,13 +20,6 @@ public class VilleController {
         this.villeService = villeService;
     }
     
-    @PostMapping
-    public ResponseEntity<Ville> create(@RequestBody Ville villeACreer) {
-        return ResponseEntity
-                .ok()
-                .body(this.villeService.createVille(villeACreer));
-    }
-    
     @GetMapping("{nomVille}")
 	public ResponseEntity<?> user(@PathVariable String nomVille) {
 		Optional<Ville> ville = this.villeService.findVille(nomVille);

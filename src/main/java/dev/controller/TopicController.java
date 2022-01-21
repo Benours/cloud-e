@@ -22,14 +22,6 @@ public class TopicController {
 		this.topicService = topicService;
 	}
 
-	public TopicService getTopicService() {
-		return topicService;
-	}
-	
-	public void setTopicService(TopicService topicService) {
-		this.topicService = topicService;
-	}
-
 	@GetMapping("{id}")
 	public ResponseEntity<?> findTopic(@PathVariable Integer id) {
 		return ResponseEntity.ok().body(this.topicService.findTopic(id));

@@ -24,14 +24,6 @@ public class MessageController {
 		this.messageService = messageService;
 	}
 	
-	public MessageService getMessageService() {
-		return messageService;
-	}
-	
-	public void setMessageService(MessageService MessageService) {
-		this.messageService = messageService;
-	}
-
 	@GetMapping("{id}")
 	public ResponseEntity<?> findMessage(@PathVariable Integer id) {
 		Message message = this.messageService.findMessage(id);

@@ -18,14 +18,6 @@ public class NotificationController {
 		super();
 		this.notificationService = notificationService;
 	}
-
-	public NotificationService getNotificationService() {
-		return notificationService;
-	}
-
-	public void setNotificationService(NotificationService notificationService) {
-		this.notificationService = notificationService;
-	}
 	
 	@GetMapping("{id}")
 	public ResponseEntity<?> findNotification(@PathVariable Integer id) {

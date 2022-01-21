@@ -23,11 +23,6 @@ public class QualiteAirService {
 		return this.qualiteAirRepository.findById(id);
 	}
 	
-	@Transactional
-	public QualiteAir createQualiteAir(QualiteAir qualiteAirToCreate) {
-		return this.qualiteAirRepository.save(qualiteAirToCreate);
-	}
-	
 	// Ajout des indices de qualité de l'air ?
 
 }
