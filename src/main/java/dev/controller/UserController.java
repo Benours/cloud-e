@@ -1,5 +1,6 @@
 package dev.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
@@ -60,6 +61,12 @@ public class UserController {
 	public ResponseEntity<?> addVille(@PathVariable Integer id, @PathVariable String ville) {
 		Ville vile = this.villeService.findVille(ville).get();
 		return ResponseEntity.ok().body(this.userService.addVille(id, vile));
+	}
+	
+	@GetMapping("favori/{id}")
+	public List<Ville> favori(@PathVariable Integer id) {
+		User user = this.userService.findUsers(id).get();
+		return user.getVilles();
 	}
 	
 	@PostMapping
