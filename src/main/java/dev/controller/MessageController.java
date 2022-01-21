@@ -40,19 +40,11 @@ public class MessageController {
 		return ResponseEntity.ok().body(this.messageService.createMessage(messageToCreate));
 	}
 	
-	
-	
-	
-	
 	@GetMapping("topic/{id}")
 	public ResponseEntity<?> getTopicMessages(@PathVariable Integer id){
 		List<Message> list = this.messageService.findMessageByTopicId(id);
 		return ResponseEntity.ok().body(list);
 	}
-	
-	
-	
-	
 	
 	@PostMapping("likes/{id}")
 	public ResponseEntity<?> likeMessage(@PathVariable Integer id) {

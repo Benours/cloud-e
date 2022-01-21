@@ -29,4 +29,9 @@ public class NotificationService {
 		return this.notificationRepository.findById(id);
 	}
 
+	public Object createNotif(Notification notificationToCreate) {
+		// TODO Auto-generated method stub
+		return this.notificationRepository.save(notificationToCreate);
+	}
+
 }
