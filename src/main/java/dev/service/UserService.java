@@ -78,7 +78,7 @@ public class UserService {
 		List<Ville> list = user.getVilles();
 		list.add(vile);
 		user.setVilles(list);
-		return user;
+		return user.getVilles();
 	}
 
 }
