@@ -10,16 +10,19 @@ import org.springframework.stereotype.Service;
 import dev.entity.Message;
 import dev.entity.Tag;
 import dev.entity.Topic;
+import dev.repository.TagRepository;
 import dev.repository.TopicRepository;
 
 @Service
 public class TopicService {
 
 	private TopicRepository topicRepository;
+	private TagRepository tagRepository;
 
-	public TopicService(TopicRepository topicRepository) {
+	public TopicService(TopicRepository topicRepository, TagRepository tagRepository) {
 		super();
 		this.topicRepository = topicRepository;
+		this.tagRepository = tagRepository;
 	}
 
 	public TopicRepository getTopicRepository() {
@@ -59,6 +62,7 @@ public class TopicService {
 
 	@Transactional
 	public Topic createTopic(Topic topicToCreate) {
+		this.tagRepository.save(topicToCreate.getTag().get(0));
 		return this.topicRepository.save(topicToCreate);
 	}
 
